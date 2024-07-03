@@ -37,7 +37,13 @@ function App() {
         </Toolbar>
       </AppBar>
 
-      <Box px={1} mx={"auto"} maxWidth={450}>
+      <Box
+        px={1}
+        mx={"auto"}
+        maxWidth={450}
+        /* bgcolor={"transparent"}
+        sx={{ backdropFilter: "blur(10px)" }} */
+      >
         <Box
           display={"flex"}
           justifyContent={"start"}
@@ -54,6 +60,11 @@ function App() {
             label="Ciudad"
             id="fullWidth"
             onChange={(e) => handleClima(e)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                getClima(inputCity);
+              }
+            }}
           />
           <Button
             onClick={() => {
