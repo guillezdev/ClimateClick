@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { WeatherDataInertface } from "../interfaces/serverInterfaces";
+import { VITE_CLIMA_API_KEY, VITE_CLIMA_URL } from "./env.conts";
 
 function useServerClima() {
   const [clima, setClima] = useState<WeatherDataInertface>();
   const [isFetching, setIsFetching] = useState<boolean>(false);
-  const VITE_CLIMA_URL = import.meta.env.VITE_CLIMA_URL;
-  const VITE_CLIMA_API_KEY = import.meta.env.VITE_CLIMA_API_KEY;
 
   const getClima = async (city: string) => {
     setIsFetching(true);
